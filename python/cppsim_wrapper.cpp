@@ -623,6 +623,18 @@ PYBIND11_MODULE(qulacs_core, m) {
             },
             "Get qubit count")
         .def(
+            "get_gpu_ptr",
+            [](const QuantumStateGpu& state) -> uintptr_t {
+                return state.data_gpu_ptr();
+            },
+            "Get GPU data pointer as integer")
+        .def(
+            "get_device_number",
+            [](const QuantumStateGpu& state) -> UINT {
+                return state.device_number;
+            },
+            "Get GPU device number")
+        .def(
             "__str__", [](const QuantumStateGpu& p) { return p.to_string(); },
             "to string");
     ;

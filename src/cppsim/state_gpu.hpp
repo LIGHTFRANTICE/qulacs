@@ -291,6 +291,24 @@ public:
     }
 
     /**
+     * \~japanese-en GPU上の量子状態データの生ポインタを取得する
+     *
+     * @return GPU上の複素ベクトルのポインタ
+     */
+    virtual void* data_gpu() const {
+        return this->_state_vector;
+    }
+
+    /**
+     * \~japanese-en GPU上の量子状態データのアドレスを整数として取得する
+     *
+     * @return GPU上のデータアドレス
+     */
+    virtual uintptr_t data_gpu_ptr() const {
+        return reinterpret_cast<uintptr_t>(this->_state_vector);
+    }
+
+    /**
      * \~japanese-en 量子状態を足しこむ
      */
     virtual void add_state(const QuantumStateBase* state) override {

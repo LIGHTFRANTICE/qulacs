@@ -143,6 +143,7 @@ class CMakeBuild(build_ext):
 
 
 setup(
+    name="qulacs",
     package_dir={"": "pysrc"},
     packages=find_packages(exclude=["test*"]) + find_packages("pysrc"),
     package_data={"": ["py.typed", "*.pyi"]},
